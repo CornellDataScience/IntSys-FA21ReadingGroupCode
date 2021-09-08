@@ -10,6 +10,7 @@ from torchvision import transforms
 from torchvision import datasets
 from torch.utils.data import DataLoader
 from torchvision.utils import save_image
+from adam import ADAMOptimizer
 matplotlib.style.use('ggplot')
 
 epochs = 20
@@ -60,6 +61,7 @@ def fit(dataloader):
 
 for epoch in range(epochs):
     fit(train_loader)
+    print(epoch)
     with torch.no_grad():
         for i, data in enumerate(test_loader):
             data, _ = data
